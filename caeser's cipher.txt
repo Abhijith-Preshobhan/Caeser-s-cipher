@@ -1,0 +1,20 @@
+// ROT13 cipher creator
+function rot13(str) {
+  let codeScript = "";
+
+  for (let i = 0; i < str.length; i++) {
+ 
+    if(/[^A-Z]/.test(str[i])) {
+      codeScript = codeScript.concat(str[i]);
+    }
+    else {
+      let cipherFormula = (((str[i].charCodeAt() - 65) + 13) % 26) + 65;
+      codeScript = codeScript.concat(String.fromCharCode(cipherFormula));
+    }
+  }
+
+  return codeScript;
+}
+
+rot13("SERR PBQR PNZC");
+rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.");
